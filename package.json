@@ -1,0 +1,33 @@
+{
+  "name": "calculator",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha --config ./test/config/mocha.config.js",
+    "coverage": "nyc npm run test"
+  },
+  "nyc": {
+    "all": true,
+    "include": [
+      "app/**/*.js"
+    ],
+    "excludes": [
+      "**/*.spec.js"
+    ],
+    "reporter": [
+      "html",
+      "text"
+    ]
+  },
+  "keywords": [],
+  "author": "Alexandr Ludanik",
+  "license": "ISC",
+  "dependencies": {
+    "chai": "^4.2.0",
+    "chai-spies": "^1.0.0",
+    "mocha": "^6.2.1",
+    "mochawesome": "^4.1.0",
+    "nyc": "^14.1.1"
+  }
+}

@@ -16,7 +16,22 @@ describe('Multiply of two numbers', function () {
         calculator = null;
     });
 
-    it('should return 8 when called with first argument 4 and second argument 2', function () {
-        expect(calculator.multiply(4, 2)).to.be.equal(8);
+    const arrayOfParams = [
+        {
+            "firstParameter": "13",
+            "secondParameter": "2",
+            "result": "26"
+        },
+        {
+            "firstParameter": "10",
+            "secondParameter": "2",
+            "result": "20"
+        }
+    ];
+
+    arrayOfParams.forEach(param => {
+        it(`should return ${param.result} when called with first argument ${param.firstParameter} and second argument ${param.secondParameter}`, function () {
+            expect(calculator.multiply(+param.firstParameter, +param.secondParameter)).to.be.equal(+param.result);
+        });
     });
 });

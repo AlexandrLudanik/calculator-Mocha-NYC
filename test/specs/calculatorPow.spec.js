@@ -12,11 +12,22 @@ describe('Pow number', function () {
         spy = chai.spy.on(calculator, 'Pow number')
     });
 
-    afterEach(() => {
-        calculator = null;
-    });
+    const arrayOfParams = [
+        {
+            "firstParameter": "11",
+            "secondParameter": "2",
+            "result": "121"
+        },
+        {
+            "firstParameter": "130",
+            "secondParameter": "2",
+            "result": "16900"
+        }
+    ];
 
-    it('should return 16 when called with first argument 4 and second argument 2', function () {
-        expect(calculator.pow(4, 2)).to.be.equal(16);
+    arrayOfParams.forEach(param => {
+        it(`should return ${param.result} when called with first argument ${param.firstParameter} and second argument ${param.secondParameter}`, function () {
+            expect(calculator.pow(+param.firstParameter, +param.secondParameter)).to.be.equal(+param.result);
+        });
     });
 });

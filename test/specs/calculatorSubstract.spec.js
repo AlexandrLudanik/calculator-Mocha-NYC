@@ -16,7 +16,23 @@ describe('Substract of two numbers', function () {
         calculator = null;
     });
 
-    it('should return 2 when called with first argument 4 and second argument 2', function () {
-        expect(calculator.substract(4, 2)).to.be.equal(2);
+
+    const arrayOfParams = [
+        {
+            "firstParameter": "13",
+            "secondParameter": "2",
+            "result": "11"
+        },
+        {
+            "firstParameter": "10",
+            "secondParameter": "2",
+            "result": "8"
+        }
+    ];
+
+    arrayOfParams.forEach(param => {
+        it(`should return ${param.result} when called with first argument ${param.firstParameter} and second argument ${param.secondParameter}`, function () {
+            expect(calculator.substract(+param.firstParameter, +param.secondParameter)).to.be.equal(+param.result);
+        });
     });
 });
